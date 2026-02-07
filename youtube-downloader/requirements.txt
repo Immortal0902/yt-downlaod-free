@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+yt-dlp>=2024.0.0
+requests
+beautifulsoup4
+jinja2
+httpx
+python-multipart
+websockets

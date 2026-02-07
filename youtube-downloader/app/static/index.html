@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Downloader | YouTube & Spotify</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/static/css/style.css?v=2">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Media Downloader</h1>
+            <p class="subtitle">Download Video & Audio from YouTube & Spotify</p>
+        </header>
+
+        <!-- Mode Toggle -->
+        <div class="tabs">
+            <button class="tab-btn active" id="tabYT" onclick="switchMode('youtube')">
+                <i class="fa-brands fa-youtube"></i> YouTube
+            </button>
+            <button class="tab-btn" id="tabSpotify" onclick="switchMode('spotify')">
+                <i class="fa-brands fa-spotify"></i> Spotify
+            </button>
+        </div>
+
+        <!-- Input Section -->
+        <div class="input-wrapper">
+            <input type="text" id="urlInput" placeholder="Paste YouTube Video URL here...">
+            <button class="action-btn" id="fetchBtn" onclick="fetchInfo()">
+                <span class="btn-txt">Get Info</span>
+                <div class="loader-spinner"></div>
+            </button>
+        </div>
+
+        <!-- Loading / Status Message -->
+        <div id="statusMsg"
+            style="text-align: center; color: var(--text-secondary); margin-bottom: 20px; display:none;"></div>
+
+        <!-- Results Section -->
+        <div class="result-card" id="resultCard">
+            <div class="media-info">
+                <div class="thumb-box">
+                    <img id="thumbImg" src="" alt="Thumbnail">
+                </div>
+                <div class="info-box">
+                    <h2 id="mediaTitle">Video Title</h2>
+                    <div class="meta">
+                        <span id="mediaDuration"><i class="fa-regular fa-clock"></i> 00:00</span>
+                        <span id="spotifyBadge" style="display:none; color: #1DB954;"><i
+                                class="fa-brands fa-spotify"></i> Spotify Match</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download Formats -->
+            <div class="quality-section">
+                <h3>Select Quality</h3>
+                <div class="formats-grid" id="formatsGrid">
+                    <!-- Format Cards Injected Here -->
+                </div>
+
+                <!-- Download Action (Hidden until selection) -->
+                <div id="downloadAction" style="display:none; margin-top: 2rem; text-align: center;">
+                    <button class="action-btn" id="startDownloadBtn"
+                        style="position: static; transform: none; padding: 1rem 3rem; font-size: 1.2rem;">
+                        <i class="fa-solid fa-download"></i> Download Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/static/js/script.js?v=2"></script>
+</body>
+
+</html>
