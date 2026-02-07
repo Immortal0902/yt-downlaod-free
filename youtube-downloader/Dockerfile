@@ -1,11 +1,14 @@
 FROM python:3.10-slim
 
-WORKDIR /app
-
+# system deps (yt-dlp + networking safe)
 RUN apt-get update && apt-get install -y \
-    gcc \
     ffmpeg \
+    ca-certificates \
+    curl \
+    build-essential \
     && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
 
 COPY requirements.txt .
 
